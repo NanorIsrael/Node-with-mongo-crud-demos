@@ -22,7 +22,10 @@ app.post('/book', (req, res) => {
     .then((book) => {
         res.status(201).json(book);
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        res.status(500).json({message: "An error ocurred. try again after some time"});
+    })
 
 });
 
@@ -32,7 +35,10 @@ app.get('/books', (req, res) => {
         res.status(200).json(books);
 
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        res.status(500).json({message: "An error ocurred. try again after some time"});
+    })
 });
 
 app.get('/book/:bookId', (req, res) => {
@@ -43,7 +49,10 @@ app.get('/book/:bookId', (req, res) => {
         res.status(200).json(books);
 
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error)
+        res.status(500).json({message: "An error ocurred. try again after some time"});
+    })
 });
 
 app.put('/book/:bookId', (req, res) => {
@@ -54,7 +63,10 @@ app.put('/book/:bookId', (req, res) => {
         res.status(200).json(books);
 
     })
-    .catch(error => console.log(error))
+    .catch(error =>{
+         console.log(error)
+         res.status(500).json({message: "An error ocurred. try again after some time"});
+        })
 });
 
 app.delete('/book/:bookId', (req, res) => {
@@ -65,7 +77,10 @@ app.delete('/book/:bookId', (req, res) => {
         res.status(200).json(books);
 
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error)
+        res.status(500).json({message: "An error ocurred. try again after some time"})
+    })
 });
 
 app.listen(5000, () => {
